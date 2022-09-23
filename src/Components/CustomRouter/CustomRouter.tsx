@@ -2,7 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Calculator } from "../Calculator/Calculator";
 import { Layout } from "../Layout/Layout";
 
-export const Router = () => {
+export const CustomRouter = () => {
   return (
     <Routes>
       <Route path="calculator" element={<Layout />}>
