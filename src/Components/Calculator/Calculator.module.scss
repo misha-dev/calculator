@@ -1,0 +1,13 @@
+@import "../../styles/_templates.scss";
+
+.wrapper {
+  width: 616px;
+  height: 876px;
+  @extend %flexCenter;
+  background: rgba($color: #fff, $alpha: 0.2);
+  backdrop-filter: blur(2px);
+  border-radius: 18px;
+  .calculator {
+    filter: none;
+  }
+}
