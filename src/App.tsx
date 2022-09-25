@@ -1,7 +1,9 @@
 import "./App.css";
 import { CustomRouter } from "./Components/CustomRouter/CustomRouter";
+import { useTyping } from "./hooks/useTyping";
 
 function App() {
+  useTyping();
   return (
     <div className="App">
       <CustomRouter />

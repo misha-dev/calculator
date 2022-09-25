@@ -6,7 +6,7 @@ interface IButtonProps {
   calcSymbol: calcSymbolType;
 }
 export const CalcButton = ({ calcSymbol }: IButtonProps) => {
-  const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick } = useButtonsClick(calcSymbol);
+  const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick } = useButtonsClick();
   return (
     <>
       {calcSymbol !== "=" ? (
@@ -15,7 +15,12 @@ export const CalcButton = ({ calcSymbol }: IButtonProps) => {
             {calcSymbol}
           </div>
         ) : (
-          <div className={cl.symbolWrapper} onClick={onCalcButtonClick}>
+          <div
+            className={cl.symbolWrapper}
+            onClick={() => {
+              onCalcButtonClick(calcSymbol);
+            }}
+          >
             {calcSymbol}
           </div>
         )

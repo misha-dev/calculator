@@ -1,25 +1,28 @@
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { CalcContext } from "../context/CalcContext";
 
-export const useButtonsClick = (calcSymbol: string) => {
+export const useButtonsClick = () => {
   const { setExpression, answer, setAnswer } = useContext(CalcContext);
-  const onCalcButtonClick = () => {
-    if (Number.isNaN(Number.parseFloat(calcSymbol)) && calcSymbol !== ",") {
-      setExpression((prevExpression) => prevExpression + " " + calcSymbol + " ");
-    } else {
-      setExpression((prevExpression) => prevExpression + calcSymbol);
-    }
-    if (answer) {
+  const onCalcButtonClick = useCallback(
+    (calcSymbol: string) => {
+      if (Number.isNaN(Number.parseFloat(calcSymbol)) && calcSymbol !== ",") {
+        setExpression((prevExpression) => prevExpression + " " + calcSymbol + " ");
+      } else {
+        setExpression((prevExpression) => prevExpression + calcSymbol);
+      }
+
       setAnswer(false);
-    }
-  };
-  const onCalcButtonEqualSignClick = () => {
+    },
+    [answer]
+  );
+
+  const onCalcButtonEqualSignClick = useCallback(() => {
     setAnswer(true);
-  };
-  const onCalcButtonEraseClick = () => {
+  }, []);
+  const onCalcButtonEraseClick = useCallback(() => {
     setExpression("");
     setAnswer(false);
-  };
+  }, []);
 
   return { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick };
 };

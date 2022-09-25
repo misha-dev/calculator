@@ -3,7 +3,11 @@ import { CalcContext } from "../../../context/CalcContext";
 import cl from "./CalcExpression.module.scss";
 
 export const CalcExpression = () => {
-  const { expression } = useContext(CalcContext);
+  const { expression, answer } = useContext(CalcContext);
 
-  return <div className={cl.calcExpression}>{expression}</div>;
+  return (
+    <div className={cl.calcExpression}>
+      {expression} {JSON.stringify(answer)}
+    </div>
+  );
 };
