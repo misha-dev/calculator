@@ -10,8 +10,10 @@
   .calculator {
     filter: none;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
     width: 554px;
     height: 800px;
     padding: 50px;

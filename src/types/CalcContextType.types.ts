@@ -1,6 +1,6 @@
 import React from "react";
 
-export type IContext = {
+export type CalcContextType = {
   expression: string;
   setExpression: React.Dispatch<React.SetStateAction<string>>;
   answer: boolean;
