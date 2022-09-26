@@ -1,7 +1,9 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { CalcContext } from "../context/CalcContext";
 import { useButtonsClick } from "./useButtonsClick";
 
 export const useTyping = () => {
+  const { answer } = useContext(CalcContext);
   const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick } = useButtonsClick();
   useEffect(() => {
     const appropriateSymbols = ["/", "%", "-", "+", ","];
@@ -25,5 +27,5 @@ export const useTyping = () => {
     return () => {
       document.removeEventListener("keyup", onKeyUpHandler);
     };
-  }, []);
+  }, [answer]);
 };

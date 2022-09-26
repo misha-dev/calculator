@@ -5,13 +5,14 @@ export const useButtonsClick = () => {
   const { setExpression, answer, setAnswer } = useContext(CalcContext);
   const onCalcButtonClick = useCallback(
     (calcSymbol: string) => {
-      if (Number.isNaN(Number.parseFloat(calcSymbol)) && calcSymbol !== ",") {
+      if (answer) {
+        setExpression(calcSymbol);
+        setAnswer(false);
+      } else if (Number.isNaN(Number.parseFloat(calcSymbol)) && calcSymbol !== ",") {
         setExpression((prevExpression) => prevExpression + " " + calcSymbol + " ");
       } else {
         setExpression((prevExpression) => prevExpression + calcSymbol);
       }
-
-      setAnswer(false);
     },
     [answer]
   );

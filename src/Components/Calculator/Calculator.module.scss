@@ -1,8 +1,8 @@
 @import "../../styles/_templates.scss";
 
 .wrapper {
-  width: 616px;
-  height: 876px;
+  width: 554px;
+  height: 800px;
   @extend %flexCenter;
   background: rgba($color: #fff, $alpha: 0.2);
   backdrop-filter: blur(2px);

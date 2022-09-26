@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CalcContext } from "../../../context/CalcContext";
+import { CalcAnswer } from "../CalcAnswer/CalcAnswer";
 import cl from "./CalcExpression.module.scss";
 
 export const CalcExpression = () => {
@@ -7,7 +8,8 @@ export const CalcExpression = () => {
 
   return (
     <div className={cl.calcExpression}>
-      {expression} {JSON.stringify(answer)}
+      <div className={`${answer ? cl.calcExpressionAnswer : ""}`}>{expression}</div>
+      {answer ? <CalcAnswer /> : null}
     </div>
   );
 };
