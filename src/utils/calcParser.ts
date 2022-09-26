@@ -1,7 +1,7 @@
 export const calcParser = (expression: string): [number[], string[]] => {
   const values: Array<number> = [];
-  const symbols: Array<string> = [];
-  const appropriateSymbols = ["/", "×", "%", "-", "+"];
+  const signs: Array<string> = [];
+  const appropriateSigns = ["/", "×", "%", "-", "+"];
   const error = "Wrong expression!";
   expression = expression.trim();
   expression = expression.replace(/,/g, ".");
@@ -34,19 +34,19 @@ export const calcParser = (expression: string): [number[], string[]] => {
     const valueIsNan = Number.isNaN(floatNumber);
     if (!valueIsNan) {
       if (shouldSquareRoot) {
-        floatNumber = +Math.sqrt(floatNumber).toFixed(2);
+        floatNumber = +Math.sqrt(floatNumber).toFixed(5);
       }
       values.push(floatNumber);
-    } else if (appropriateSymbols.includes(el)) {
-      symbols.push(el);
+    } else if (appropriateSigns.includes(el)) {
+      signs.push(el);
     } else {
       throw new Error(error);
     }
   });
 
-  if (values.length - 1 !== symbols.length) {
+  if (values.length - 1 !== signs.length) {
     throw new Error(error);
   }
 
-  return [values, symbols];
+  return [values, signs];
 };

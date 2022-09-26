@@ -6,7 +6,7 @@ export const useTyping = () => {
   const { answer } = useContext(CalcContext);
   const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick, onCalcBackspace } = useButtonsClick();
   useEffect(() => {
-    const appropriateSymbols = ["/", "%", "-", "+", ","];
+    const appropriateSigns = ["/", "%", "-", "+", ","];
     const onKeyUpHandler = (event: KeyboardEvent) => {
       const value = event.key;
 
@@ -18,7 +18,7 @@ export const useTyping = () => {
         onCalcBackspace();
       } else if (!Number.isNaN(Number(value))) {
         onCalcButtonClick(value);
-      } else if (appropriateSymbols.includes(value)) {
+      } else if (appropriateSigns.includes(value)) {
         onCalcButtonClick(value);
       } else if (value === "*") {
         onCalcButtonClick("×");
