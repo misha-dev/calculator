@@ -2,7 +2,7 @@ import { useCallback, useContext } from "react";
 import { CalcContext } from "../context/CalcContext";
 
 export const useButtonsClick = () => {
-  const { setExpression, answer, setAnswer } = useContext(CalcContext);
+  const { expression, setExpression, answer, setAnswer } = useContext(CalcContext);
   const onCalcButtonClick = useCallback(
     (calcSymbol: string) => {
       if (answer) {
@@ -25,5 +25,16 @@ export const useButtonsClick = () => {
     setAnswer(false);
   }, []);
 
-  return { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick };
+  const onCalcBackspace = useCallback(() => {
+    setExpression((prevExpression) => {
+      if (prevExpression.at(-1) === " ") {
+        return prevExpression.slice(0, -2).trim();
+      } else {
+        return prevExpression.slice(0, -1).trim();
+      }
+    });
+    setAnswer(false);
+  }, [expression]);
+
+  return { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick, onCalcBackspace };
 };

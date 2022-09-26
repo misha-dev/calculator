@@ -4,7 +4,7 @@ import { useButtonsClick } from "./useButtonsClick";
 
 export const useTyping = () => {
   const { answer } = useContext(CalcContext);
-  const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick } = useButtonsClick();
+  const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick, onCalcBackspace } = useButtonsClick();
   useEffect(() => {
     const appropriateSymbols = ["/", "%", "-", "+", ","];
     const onKeyUpHandler = (event: KeyboardEvent) => {
@@ -14,6 +14,8 @@ export const useTyping = () => {
         onCalcButtonEqualSignClick();
       } else if (value === "Escape") {
         onCalcButtonEraseClick();
+      } else if (value === "Backspace") {
+        onCalcBackspace();
       } else if (!Number.isNaN(Number(value))) {
         onCalcButtonClick(value);
       } else if (appropriateSymbols.includes(value)) {
@@ -23,9 +25,9 @@ export const useTyping = () => {
       }
     };
 
-    document.addEventListener("keyup", onKeyUpHandler);
+    document.addEventListener("keydown", onKeyUpHandler);
     return () => {
-      document.removeEventListener("keyup", onKeyUpHandler);
+      document.removeEventListener("keydown", onKeyUpHandler);
     };
   }, [answer]);
 };

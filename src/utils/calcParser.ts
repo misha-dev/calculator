@@ -1,4 +1,4 @@
-export const calcParser = (expression: string) => {
+export const calcParser = (expression: string): [number[], string[]] => {
   const values: Array<number> = [];
   const symbols: Array<string> = [];
   const appropriateSymbols = ["/", "×", "%", "-", "+"];
@@ -11,15 +11,14 @@ export const calcParser = (expression: string) => {
   splittedExpression.forEach((el) => {
     let shouldSquareRoot = false;
     const squareSigns = [...el.matchAll(/√/g)];
-    console.log(el);
 
     if (squareSigns.length > 0) {
       if (squareSigns.length > 1) {
-        return error;
+        throw new Error(error);
       } else if (el[0] === "√") {
         shouldSquareRoot = true;
       } else {
-        return error;
+        throw new Error(error);
       }
     }
     if (shouldSquareRoot) {
@@ -27,7 +26,7 @@ export const calcParser = (expression: string) => {
     }
 
     if (el.trim() === "") {
-      return error;
+      throw new Error(error);
     }
 
     let floatNumber = Number(el);
@@ -41,13 +40,13 @@ export const calcParser = (expression: string) => {
     } else if (appropriateSymbols.includes(el)) {
       symbols.push(el);
     } else {
-      return error;
+      throw new Error(error);
     }
   });
 
   if (values.length - 1 !== symbols.length) {
-    return error;
+    throw new Error(error);
   }
 
-  return values;
+  return [values, symbols];
 };
