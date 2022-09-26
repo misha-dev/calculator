@@ -14,7 +14,7 @@ export const useTyping = () => {
         onCalcButtonEqualSignClick();
       } else if (value === "Escape") {
         onCalcButtonEraseClick();
-      } else if (!Number.isNaN(Number.parseFloat(value))) {
+      } else if (!Number.isNaN(Number(value))) {
         onCalcButtonClick(value);
       } else if (appropriateSymbols.includes(value)) {
         onCalcButtonClick(value);

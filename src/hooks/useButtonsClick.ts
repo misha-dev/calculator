@@ -8,7 +8,7 @@ export const useButtonsClick = () => {
       if (answer) {
         setExpression(calcSymbol);
         setAnswer(false);
-      } else if (Number.isNaN(Number.parseFloat(calcSymbol)) && calcSymbol !== ",") {
+      } else if (Number.isNaN(Number(calcSymbol)) && calcSymbol !== "," && calcSymbol !== "√") {
         setExpression((prevExpression) => prevExpression + " " + calcSymbol + " ");
       } else {
         setExpression((prevExpression) => prevExpression + calcSymbol);
