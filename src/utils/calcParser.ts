@@ -1,4 +1,4 @@
-export const calcFunction = (expression: string) => {
+export const calcParser = (expression: string) => {
   const values: Array<number> = [];
   const symbols: Array<string> = [];
   const appropriateSymbols = ["/", "×", "%", "-", "+"];
@@ -24,7 +24,10 @@ export const calcFunction = (expression: string) => {
     }
     if (shouldSquareRoot) {
       el = el.slice(1);
-      console.log(el);
+    }
+
+    if (el.trim() === "") {
+      return error;
     }
 
     let floatNumber = Number(el);
@@ -32,7 +35,7 @@ export const calcFunction = (expression: string) => {
     const valueIsNan = Number.isNaN(floatNumber);
     if (!valueIsNan) {
       if (shouldSquareRoot) {
-        floatNumber = Math.sqrt(floatNumber);
+        floatNumber = +Math.sqrt(floatNumber).toFixed(2);
       }
       values.push(floatNumber);
     } else if (appropriateSymbols.includes(el)) {
