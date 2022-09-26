@@ -7,13 +7,15 @@ export const CalcExpression = () => {
   const { expression, answer, setAnswer } = useContext(CalcContext);
 
   return (
-    <div
-      onClick={() => {
-        setAnswer(false);
-      }}
-      className={cl.calcExpression}
-    >
-      <div className={`${answer ? cl.calcExpressionAnswer : ""}`}>{expression}</div>
+    <div className={cl.calcExpression}>
+      <div
+        onClick={() => {
+          setAnswer(false);
+        }}
+        className={`${answer ? cl.calcExpressionAnswer : ""}`}
+      >
+        {expression}
+      </div>
       {answer ? <CalcAnswer /> : null}
     </div>
   );
