@@ -28,10 +28,12 @@ export const useButtonsClick = () => {
 
   const onCalcBackspace = useCallback(() => {
     setExpression((prevExpression) => {
+      console.log(prevExpression);
+
       if (prevExpression.at(-1) === " ") {
-        return prevExpression.slice(0, -2).trim();
+        return prevExpression.slice(0, -3);
       } else {
-        return prevExpression.slice(0, -1).trim();
+        return prevExpression.slice(0, -1);
       }
     });
     setAnswer(false);
