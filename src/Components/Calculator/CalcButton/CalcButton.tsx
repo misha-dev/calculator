@@ -1,9 +1,9 @@
 import { useButtonsClick } from "../../../hooks/useButtonsClick";
-import { calcSymbolType } from "../../../types/calcSymbolType.types";
+import { CalcSymbolType } from "../../../types/calcSymbolType.types";
 import cl from "./CalcButton.module.scss";
 
 interface IButtonProps {
-  calcSymbol: calcSymbolType;
+  calcSymbol: CalcSymbolType;
 }
 export const CalcButton = ({ calcSymbol }: IButtonProps) => {
   const { onCalcButtonClick, onCalcButtonEqualSignClick, onCalcButtonEraseClick } = useButtonsClick();

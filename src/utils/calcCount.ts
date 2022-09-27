@@ -1,22 +1,34 @@
-import { operations } from "../types/calcSymbolType.types";
+import { INumber, NumberArray, Operation } from "../types/calcSymbolType.types";
 
-export const calcCount = (values: Array<number | bigint>, signs: Array<operations>) => {
-  function resolveOperation(value1: number | bigint, value2: number | bigint, operation: operations): number {
+export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): number => {
+  function resolveOperation(numObj1: INumber, numObj2: INumber, operation: Operation): number {
     let evaluation = 0;
     switch (operation) {
       case "×":
-        evaluation = (value1 as number) * (value2 as number);
+        evaluation = numObj1.value * numObj2.value;
         break;
       case "/":
-        evaluation = (value1 as number) / (value2 as number);
+        evaluation = numObj1.value / numObj2.value;
         break;
 
       case "+":
-        evaluation = (value1 as number) + (value2 as number);
+        if (numObj1.typeOfNumber === "percentageNumber") {
+          evaluation = numObj1.value * numObj2.value + numObj2.value;
+        } else if (numObj2.typeOfNumber === "percentageNumber") {
+          evaluation = numObj1.value + numObj2.value * numObj1.value;
+        } else {
+          evaluation = numObj1.value + numObj2.value;
+        }
         break;
 
       case "-":
-        evaluation = (value1 as number) - (value2 as number);
+        if (numObj1.typeOfNumber === "percentageNumber") {
+          evaluation = numObj1.value * numObj2.value - numObj2.value;
+        } else if (numObj2.typeOfNumber === "percentageNumber") {
+          evaluation = numObj1.value - numObj2.value * numObj1.value;
+        } else {
+          evaluation = numObj1.value - numObj2.value;
+        }
         break;
     }
     return evaluation;
@@ -24,20 +36,20 @@ export const calcCount = (values: Array<number | bigint>, signs: Array<operation
 
   for (let i = 0; i < signs.length; i++) {
     if (signs[i] === "×" || signs[i] === "/") {
-      let evaluation = resolveOperation(values[i], values[i + 1], signs[i]);
+      let evaluation = resolveOperation(numberObjects[i], numberObjects[i + 1], signs[i]);
       evaluation = +evaluation.toFixed(5);
-      values.splice(i, 2, evaluation);
+      numberObjects.splice(i, 2, { typeOfNumber: "simpleNumber", value: evaluation });
       signs.splice(i, 1);
       i--;
     }
   }
 
   for (let i = 0; i < signs.length; i++) {
-    let evaluation = resolveOperation(values[i], values[i + 1], signs[i]);
-    values.splice(i, 2, evaluation);
+    let evaluation = resolveOperation(numberObjects[i], numberObjects[i + 1], signs[i]);
+    numberObjects.splice(i, 2, { typeOfNumber: "simpleNumber", value: evaluation });
     signs.splice(i, 1);
     i--;
   }
 
-  return values[0];
+  return numberObjects[0].value;
 };

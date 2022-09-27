@@ -3,8 +3,8 @@ import { calcParser } from "./calcParser";
 
 export const calculation = (expression: string) => {
   try {
-    const [values, signs] = calcParser(expression);
-    const evaluation = calcCount(values, signs);
+    const [numberObjects, signs] = calcParser(expression);
+    const evaluation = calcCount(numberObjects, signs);
     return evaluation;
   } catch (error: any) {
     return error.message;
