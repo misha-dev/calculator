@@ -1,6 +1,8 @@
 import { useCallback, useContext } from "react";
 import { CalcContext } from "../context/CalcContext";
 
+
+// hook for managing typed symbols
 export const useButtonsClick = () => {
   const { expression, setExpression, answer, setAnswer } = useContext(CalcContext);
   const notSpaceSigns = [",", "√", "%"];

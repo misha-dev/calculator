@@ -1,6 +1,33 @@
 import { INumber, NumberArray, Operation } from "../types/calcSymbolType.types";
 
 export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): number => {
+  // checking for value with "sign" for getting exactly percent from  previous / second value
+  function evaluateBasedOnValue(numObj1: INumber, numObj2: INumber, operation: "+" | "-") {
+    let evaluation = 0;
+
+    if (numObj1.typeOfNumber === "percentageNumber") {
+      if (operation === "+") {
+        evaluation = numObj1.value * numObj2.value + numObj2.value;
+      } else {
+        evaluation = numObj1.value * numObj2.value - numObj2.value;
+      }
+    } else if (numObj2.typeOfNumber === "percentageNumber") {
+      if (operation === "+") {
+        evaluation = numObj1.value + numObj2.value * numObj1.value;
+      } else {
+        evaluation = numObj1.value - numObj2.value * numObj1.value;
+      }
+    } else {
+      if (operation === "+") {
+        evaluation = numObj1.value + numObj2.value;
+      } else {
+        evaluation = numObj1.value + numObj2.value;
+      }
+    }
+
+    return evaluation;
+  }
+
   function resolveOperation(numObj1: INumber, numObj2: INumber, operation: Operation): number {
     let evaluation = 0;
     switch (operation) {
@@ -12,23 +39,11 @@ export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): 
         break;
 
       case "+":
-        if (numObj1.typeOfNumber === "percentageNumber") {
-          evaluation = numObj1.value * numObj2.value + numObj2.value;
-        } else if (numObj2.typeOfNumber === "percentageNumber") {
-          evaluation = numObj1.value + numObj2.value * numObj1.value;
-        } else {
-          evaluation = numObj1.value + numObj2.value;
-        }
+        evaluation = evaluateBasedOnValue(numObj1, numObj2, "+");
         break;
 
       case "-":
-        if (numObj1.typeOfNumber === "percentageNumber") {
-          evaluation = numObj1.value * numObj2.value - numObj2.value;
-        } else if (numObj2.typeOfNumber === "percentageNumber") {
-          evaluation = numObj1.value - numObj2.value * numObj1.value;
-        } else {
-          evaluation = numObj1.value - numObj2.value;
-        }
+        evaluation = evaluateBasedOnValue(numObj1, numObj2, "-");
         break;
     }
     return evaluation;
