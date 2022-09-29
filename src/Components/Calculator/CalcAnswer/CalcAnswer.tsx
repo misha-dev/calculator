@@ -6,5 +6,9 @@ import cl from "./CalcAnswer.module.scss";
 export const CalcAnswer = () => {
   const { expression } = useContext(CalcContext);
 
-  return <div className={cl.calcAnswer}>{calculation(expression)}</div>;
+  return (
+    <div data-testid="answer" className={cl.calcAnswer}>
+      {calculation(expression)}
+    </div>
+  );
 };
