@@ -21,7 +21,7 @@ export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): 
       if (operation === "+") {
         evaluation = numObj1.value + numObj2.value;
       } else {
-        evaluation = numObj1.value + numObj2.value;
+        evaluation = numObj1.value - numObj2.value;
       }
     }
 
