@@ -6,12 +6,26 @@
   height: 80px;
   cursor: pointer;
   color: #fff;
-  font-size: 36px;
+  font-size: 2rem;
   border-radius: 50%;
   transition: 0.2s ease;
   user-select: none;
 
   &:hover {
     background: rgba($color: #fff, $alpha: 0.12);
+  }
+}
+
+@media (max-width: 1180px) {
+  .symbolWrapper {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .symbolWrapper {
+    font-size: 1.3rem;
+    width: 40px;
+    height: 40px;
   }
 }

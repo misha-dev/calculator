@@ -3,5 +3,8 @@
   font-weight: bold;
 }
 
-
-
+@media (max-width: 768px) {
+  .calcAnswer {
+    font-size: 1.5rem;
+  }
+}
