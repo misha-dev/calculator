@@ -18,13 +18,8 @@
   font-size: 1.3rem;
 }
 
-// @media (max-width: 768px) {
-//   .calcExpression {
-//     font-size: 1.1rem;
-//     margin-bottom: 10px;
-//   }
-//   .calcExpressionAnswer {
-//     font-size: 0.9rem;
-//     transform: translateY(-20px);
-//   }
-// }
+@media (max-width: 768px) {
+  .calcExpressionAnswer {
+    transform: translateY(-45px);
+  }
+}
