@@ -1,6 +1,5 @@
 .mainWrapper {
   display: grid;
-  height: 50%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 20px;
@@ -13,6 +12,7 @@
 }
 @media (max-width: 768px) {
   .mainWrapper {
+    height: 60%;
     gap: 20px;
   }
 }
