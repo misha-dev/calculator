@@ -1,7 +1,24 @@
 .mainWrapper {
   display: grid;
+  height: 50%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 20px;
 }
 
+@media (max-width: 1180px) {
+  .mainWrapper {
+    gap: 25px;
+  }
+}
+@media (max-width: 768px) {
+  .mainWrapper {
+    gap: 20px;
+  }
+}
+
+@media (max-height: 500px) {
+  .mainWrapper {
+    gap: 10px;
+  }
+}
