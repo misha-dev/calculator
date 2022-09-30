@@ -1,5 +1,6 @@
 import { useButtonsClick } from "../../../hooks/useButtonsClick";
 import { CalcSymbolType } from "../../../types/calcSymbolType.types";
+
 import cl from "./CalcButton.module.scss";
 
 interface IButtonProps {

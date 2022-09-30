@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useState } from "react";
+
 import { CalcContextType } from "../types/CalcContextType.types";
 
 export const CalcContext = createContext<CalcContextType>(null!);

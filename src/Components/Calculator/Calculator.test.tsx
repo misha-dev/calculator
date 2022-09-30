@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+
 import { CalcContextProvider } from "../../context/CalcContext";
+
 import { Calculator } from "./Calculator";
 
 describe("Calculator", () => {
@@ -8,7 +10,7 @@ describe("Calculator", () => {
     render(
       <CalcContextProvider>
         <Calculator />
-      </CalcContextProvider>
+      </CalcContextProvider>,
     );
     const button = screen.getByText("C");
     expect(button).toBeInTheDocument();
@@ -20,7 +22,7 @@ describe("Calculator", () => {
     render(
       <CalcContextProvider>
         <Calculator />
-      </CalcContextProvider>
+      </CalcContextProvider>,
     );
     const buttonC = screen.getByText("C");
     const button1 = screen.getByText("1");
@@ -39,7 +41,7 @@ describe("Calculator", () => {
     render(
       <CalcContextProvider>
         <Calculator />
-      </CalcContextProvider>
+      </CalcContextProvider>,
     );
     const button1 = screen.getByText("1");
     const buttonPlus = screen.getByText("+");
@@ -59,7 +61,7 @@ describe("Calculator", () => {
     render(
       <CalcContextProvider>
         <Calculator />
-      </CalcContextProvider>
+      </CalcContextProvider>,
     );
     const button1 = screen.getByText("1");
     const buttonPlus = screen.getByText("+");

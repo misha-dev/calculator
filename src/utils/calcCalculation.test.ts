@@ -13,7 +13,7 @@ const mockData: { [key: string]: number | string } = {
 };
 
 describe("Calculation test", () => {
-  for (let [key, value] of Object.entries(mockData)) {
+  for (const [key, value] of Object.entries(mockData)) {
     it(`should ${key} = ${value}`, () => {
       expect(calcCalculation(key)).toBe(value);
     });

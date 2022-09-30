@@ -1,7 +1,8 @@
 import { useContext, useEffect } from "react";
-import { CalcContext } from "../context/CalcContext";
-import { useButtonsClick } from "./useButtonsClick";
 
+import { CalcContext } from "../context/CalcContext";
+
+import { useButtonsClick } from "./useButtonsClick";
 
 // hook for managing typed values from the keyboard
 export const useTyping = () => {

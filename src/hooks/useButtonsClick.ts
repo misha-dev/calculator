@@ -1,4 +1,5 @@
 import { useCallback, useContext } from "react";
+
 import { CalcContext } from "../context/CalcContext";
 
 
@@ -17,7 +18,7 @@ export const useButtonsClick = () => {
         setExpression((prevExpression) => prevExpression + calcSymbol);
       }
     },
-    [answer]
+    [answer],
   );
 
   const onCalcButtonEqualSignClick = useCallback(() => {

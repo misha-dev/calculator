@@ -31,20 +31,20 @@ export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): 
   function resolveOperation(numObj1: INumber, numObj2: INumber, operation: Operation): number {
     let evaluation = 0;
     switch (operation) {
-      case "×":
-        evaluation = numObj1.value * numObj2.value;
-        break;
-      case "/":
-        evaluation = numObj1.value / numObj2.value;
-        break;
+    case "×":
+      evaluation = numObj1.value * numObj2.value;
+      break;
+    case "/":
+      evaluation = numObj1.value / numObj2.value;
+      break;
 
-      case "+":
-        evaluation = evaluateBasedOnNumberType(numObj1, numObj2, "+");
-        break;
+    case "+":
+      evaluation = evaluateBasedOnNumberType(numObj1, numObj2, "+");
+      break;
 
-      case "-":
-        evaluation = evaluateBasedOnNumberType(numObj1, numObj2, "-");
-        break;
+    case "-":
+      evaluation = evaluateBasedOnNumberType(numObj1, numObj2, "-");
+      break;
     }
     return evaluation;
   }
@@ -60,7 +60,7 @@ export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): 
   }
 
   for (let i = 0; i < signs.length; i++) {
-    let evaluation = resolveOperation(numberObjects[i], numberObjects[i + 1], signs[i]);
+    const evaluation = resolveOperation(numberObjects[i], numberObjects[i + 1], signs[i]);
     numberObjects.splice(i, 2, { typeOfNumber: "simpleNumber", value: evaluation });
     signs.splice(i, 1);
     i--;

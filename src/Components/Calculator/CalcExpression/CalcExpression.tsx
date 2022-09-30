@@ -1,6 +1,8 @@
 import { useContext } from "react";
+
 import { CalcContext } from "../../../context/CalcContext";
 import { CalcAnswer } from "../CalcAnswer/CalcAnswer";
+
 import cl from "./CalcExpression.module.scss";
 
 export const CalcExpression = () => {

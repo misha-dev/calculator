@@ -62,7 +62,7 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
       throw new Error(error);
     }
 
-    let numberObject: INumber = { typeOfNumber: "simpleNumber", value: 0 };
+    const numberObject: INumber = { typeOfNumber: "simpleNumber", value: 0 };
 
     let floatNumber = Number(el);
 
