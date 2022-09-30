@@ -34,6 +34,7 @@ describe("Calculator", () => {
     userEvent.click(buttonC);
     expect(expression.innerHTML).toBe("");
   });
+
   test("should get proper answer", () => {
     render(
       <CalcContextProvider>
@@ -52,5 +53,23 @@ describe("Calculator", () => {
     userEvent.click(buttonEqualSign);
     const answer = screen.getByTestId("answer");
     expect(answer.innerHTML).toBe("3");
+  });
+
+  test("should handle error", () => {
+    render(
+      <CalcContextProvider>
+        <Calculator />
+      </CalcContextProvider>
+    );
+    const button1 = screen.getByText("1");
+    const buttonPlus = screen.getByText("+");
+    const button2 = screen.getByText("2");
+    const buttonEqualSign = screen.getByText("=");
+    userEvent.click(button1);
+    userEvent.click(button2);
+    userEvent.click(buttonPlus);
+    userEvent.click(buttonEqualSign);
+    const answer = screen.getByTestId("answer");
+    expect(answer.innerHTML).toBe("Wrong expression!");
   });
 });
