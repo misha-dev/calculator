@@ -17,13 +17,12 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
       const squareSigns = [...el.matchAll(/√/g)];
       if (squareSigns.length > 0) {
         includesSign = true;
-        console.log(3);
 
         if (squareSigns.length > 1) {
           throw new Error(error);
         } else if (el[0] === "√") {
           el = el.slice(1);
-        } else if (el.at(-1) === "√") {
+        } else if (el[el.length - 1] === "√") {
           throw new Error(error);
         } else {
           const splittedExpression = el.split("√");
@@ -41,7 +40,7 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
         includesSign = true;
         if (squareSigns.length > 1) {
           throw new Error(error);
-        } else if (el.at(-1) === "%") {
+        } else if (el[el.length - 1] === "%") {
           el = el.slice(0, -1);
         } else {
           throw new Error(error);

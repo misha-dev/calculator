@@ -30,7 +30,6 @@ export const useButtonsClick = () => {
 
   const onCalcBackspace = useCallback(() => {
     setExpression((prevExpression) => {
-      console.log(prevExpression);
 
       if (prevExpression.at(-1) === " ") {
         return prevExpression.slice(0, -3);
