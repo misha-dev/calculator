@@ -34,9 +34,12 @@ This project implements calculator with all its basic commands like "+", "-", et
    npm test
    ```
 
-## Usage
+## Technologies
 
-This project is mainly focused on calculation, so it can help with solving math problems.
+- React (TypeScript)
+- React Router (v6)
+- SCSS modules
+- Jest
 
 ## Contributing:star2:
 
