@@ -1,3 +1,5 @@
+import { ErrorType } from "../types/ErrorType";
+
 import { calcCalculation } from "./calcCalculation";
 
 const mockData: { [key: string]: number | string } = {
@@ -8,7 +10,7 @@ const mockData: { [key: string]: number | string } = {
   "√9": 3,
   "2√9": 6,
   "10 + 30%": 13,
-  "3,,3": "Wrong expression!",
+  "3,,3": ErrorType.ExpressionError,
   "3,3 - 5,2 + 33,3 - 10 / 30": 31.06667,
 };
 

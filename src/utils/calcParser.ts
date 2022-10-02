@@ -1,10 +1,11 @@
-import { INumber, NumberArray, Operation } from "../types/calcSymbolType.types";
+import { INumber, NumberArray, Operation } from "../types/CalcSymbolTypes.types";
+import { ErrorType } from "../types/ErrorType";
 
 export const calcParser = (expression: string): [NumberArray, Operation[]] => {
   const numberObjects: NumberArray = [];
   const signs: Array<Operation> = [];
   const appropriateSigns: Operation[] = ["/", "×", "-", "+"];
-  const error = "Wrong expression!";
+  const error = ErrorType.ExpressionError;
   expression = expression.trim();
   expression = expression.replace(/,/g, ".");
 

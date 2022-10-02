@@ -1,4 +1,4 @@
-import { INumber, NumberArray, Operation } from "../types/calcSymbolType.types";
+import { INumber, NumberArray, Operation } from "../types/CalcSymbolTypes.types";
 
 export const calcCount = (numberObjects: NumberArray, signs: Array<Operation>): number => {
   // checking for value with "sign" for getting exactly percent from  previous / second value

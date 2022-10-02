@@ -1,3 +1,5 @@
+import { ErrorType } from "../types/ErrorType";
+
 import { calcCount } from "./calcCount";
 import { calcParser } from "./calcParser";
 import { isHandledError } from "./typeGuardError";
@@ -11,7 +13,7 @@ export const calcCalculation = (expression: string) => {
     if (isHandledError(error)) {
       return error.message;
     } else {
-      return "Unknown error!";
+      return ErrorType.UnknownError;
     }
   }
 };

@@ -1,5 +1,5 @@
 import { useButtonsClick } from "../../../hooks/useButtonsClick";
-import { CalcSymbolType } from "../../../types/calcSymbolType.types";
+import { CalcSymbolType } from "../../../types/CalcSymbolTypes.types";
 
 import cl from "./CalcButton.module.scss";
 

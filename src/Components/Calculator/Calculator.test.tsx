@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import { CalcContextProvider } from "../../context/CalcContext";
+import { ErrorType } from "../../types/ErrorType";
 
 import { Calculator } from "./Calculator";
 
@@ -72,6 +73,6 @@ describe("Calculator", () => {
     userEvent.click(buttonPlus);
     userEvent.click(buttonEqualSign);
     const answer = screen.getByTestId("answer");
-    expect(answer.innerHTML).toBe("Wrong expression!");
+    expect(answer.innerHTML).toBe(ErrorType.ExpressionError);
   });
 });
