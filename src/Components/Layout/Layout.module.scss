@@ -1,9 +1,8 @@
-@import "../../styles/_templates.scss";
+@import "../../styles/_templates";
 
 .mainContent {
   height: 100vh;
-  @extend %flexCenter;
   background: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+
+  @extend %flexCenter;
 }
-
-

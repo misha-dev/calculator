@@ -1,21 +1,19 @@
 .calcExpression {
+  overflow-wrap: break-word;
+  margin-bottom: 20px;
   width: 100%;
-  font-weight: 500;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1.625rem;
   line-height: 32px;
   text-align: right;
   color: #f2f2f2;
-  overflow-wrap: break-word;
-  margin-bottom: 20px;
   transition: 0.2 ease;
-  font-style: normal;
-  font-weight: 500;
-  font-weight: normal;
 }
 
 .calcExpressionAnswer {
-  transform: translateY(-50px);
   font-size: 1.3rem;
+  transform: translateY(-50px);
 }
 
 @media (max-width: 768px) {

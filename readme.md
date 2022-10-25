@@ -41,6 +41,7 @@ This project implements calculator with all its basic commands like "+", "-", et
 - SCSS modules
 - Jest
 - ESLint
+- Stylelint
 
 ## Contributing:star2:
 
