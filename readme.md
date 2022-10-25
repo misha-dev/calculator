@@ -40,6 +40,7 @@ This project implements calculator with all its basic commands like "+", "-", et
 - React Router (v6)
 - SCSS modules
 - Jest
+- ESLint
 
 ## Contributing:star2:
 
