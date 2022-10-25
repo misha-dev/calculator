@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/calculator/static/css/main.57e6ad8f.css",
-    "main.js": "/calculator/static/js/main.316a8f47.js",
+    "main.css": "/calculator/static/css/main.9b393e12.css",
+    "main.js": "/calculator/static/js/main.023d2c99.js",
     "static/media/geometria_mediumitalic.otf": "/calculator/static/media/geometria_mediumitalic.ce6b410899925e33d0db.otf",
     "static/media/geometria_bolditalic.otf": "/calculator/static/media/geometria_bolditalic.65bccc51d5ab0d6e31e8.otf",
     "static/media/geometria_medium.otf": "/calculator/static/media/geometria_medium.7ab28e0b639484784c93.otf",
@@ -9,11 +9,11 @@
     "static/media/geometria_bold.otf": "/calculator/static/media/geometria_bold.b44887183ba2d29c6642.otf",
     "static/media/geometria_light.otf": "/calculator/static/media/geometria_light.35f7588a8ea2cfe04ae4.otf",
     "index.html": "/calculator/index.html",
-    "main.57e6ad8f.css.map": "/calculator/static/css/main.57e6ad8f.css.map",
-    "main.316a8f47.js.map": "/calculator/static/js/main.316a8f47.js.map"
+    "main.9b393e12.css.map": "/calculator/static/css/main.9b393e12.css.map",
+    "main.023d2c99.js.map": "/calculator/static/js/main.023d2c99.js.map"
   },
   "entrypoints": [
-    "static/css/main.57e6ad8f.css",
-    "static/js/main.316a8f47.js"
+    "static/css/main.9b393e12.css",
+    "static/js/main.023d2c99.js"
   ]
 }
