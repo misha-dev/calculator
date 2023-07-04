@@ -1,0 +1,60 @@
+@import '../../../styles/templates';
+
+.wrapper {
+  border-radius: 18px;
+  width: 616px;
+  height: 876px;
+  background: rgba($color: #fff, $alpha: 0.2);
+  backdrop-filter: blur(2px);
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    border-radius: 18px;
+    padding: 50px;
+    width: 554px;
+    height: 800px;
+    box-shadow: 0 82px 158px rgba(0, 0, 0, 0.35), 0 24.7206px 47.6324px rgba(0, 0, 0, 0.228056), 0 10.2677px 19.7841px rgba(0, 0, 0, 0.175), 0 3.71362px 7.1555px rgba(0, 0, 0, 0.121944);
+    background: linear-gradient(155.23deg, #28518e 0%, #3a77d1 100%);
+    filter: none;
+  }
+
+  @extend %flexCenter;
+}
+
+@media (max-width: 1180px) {
+  .wrapper {
+    border-radius: 0;
+    width: 100vw;
+    height: 100vh;
+
+    .calculator {
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    .calculator {
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-height: 800px) {
+  .wrapper {
+    width: 100vw;
+    height: 100vh;
+
+    .calculator {
+      border-radius: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

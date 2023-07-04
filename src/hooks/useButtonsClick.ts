@@ -1,19 +1,20 @@
-import { useCallback, useContext } from "react";
+import { useCallback, useContext } from 'react';
 
-import { CalcContext } from "../context/CalcContext";
+import { CalcContext } from '../data';
+
 
 
 // hook for managing typed symbols
 export const useButtonsClick = () => {
   const { expression, setExpression, answer, setAnswer } = useContext(CalcContext);
-  const notSpaceSigns = [",", "√", "%"];
+  const notSpaceSigns = [',', '√', '%'];
   const onCalcButtonClick = useCallback(
     (calcSymbol: string) => {
       if (answer) {
         setExpression(calcSymbol);
         setAnswer(false);
       } else if (Number.isNaN(Number(calcSymbol)) && !notSpaceSigns.includes(calcSymbol)) {
-        setExpression((prevExpression) => prevExpression + " " + calcSymbol + " ");
+        setExpression((prevExpression) => prevExpression + ' ' + calcSymbol + ' ');
       } else {
         setExpression((prevExpression) => prevExpression + calcSymbol);
       }
@@ -25,14 +26,13 @@ export const useButtonsClick = () => {
     setAnswer(true);
   }, []);
   const onCalcButtonEraseClick = useCallback(() => {
-    setExpression("");
+    setExpression('');
     setAnswer(false);
   }, []);
 
   const onCalcBackspace = useCallback(() => {
     setExpression((prevExpression) => {
-
-      if (prevExpression.at(-1) === " ") {
+      if (prevExpression.at(-1) === ' ') {
         return prevExpression.slice(0, -3);
       } else {
         return prevExpression.slice(0, -1);

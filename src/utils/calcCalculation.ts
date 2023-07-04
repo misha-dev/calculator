@@ -1,8 +1,8 @@
-import { ErrorType } from "../types/ErrorType";
+import { ErrorEnum } from '../types';
 
-import { calcCount } from "./calcCount";
-import { calcParser } from "./calcParser";
-import { isHandledError } from "./typeGuardError";
+import { calcCount } from './calcCount';
+import { calcParser } from './calcParser';
+import { isHandledError } from './typeGuardError';
 
 export const calcCalculation = (expression: string) => {
   try {
@@ -13,7 +13,7 @@ export const calcCalculation = (expression: string) => {
     if (isHandledError(error)) {
       return error.message;
     } else {
-      return ErrorType.UnknownError;
+      return ErrorEnum.UnknownError;
     }
   }
 };

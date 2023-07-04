@@ -1,6 +1,8 @@
-import "./App.scss";
-import { CustomRouter } from "./Components/CustomRouter/CustomRouter";
-import { useTyping } from "./hooks/useTyping";
+import './App.scss';
+import { CustomRouter } from './features';
+import { useTyping } from './hooks';
+
+
 
 function App() {
   useTyping();

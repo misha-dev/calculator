@@ -28,7 +28,7 @@
     "stylelint": "stylelint \"**/*.module.scss\" --fix",
     "prelint": "npm run stylelint",
     "lint": "eslint .",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix"
   },
   "browserslist": {
     "production": [

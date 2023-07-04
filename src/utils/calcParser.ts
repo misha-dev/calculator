@@ -1,32 +1,32 @@
-import { INumber, NumberArray, Operation } from "../types/CalcSymbolTypes.types";
-import { ErrorType } from "../types/ErrorType";
+import { ErrorEnum, INumber, NumberArray, Operation } from '../types';
+
 
 export const calcParser = (expression: string): [NumberArray, Operation[]] => {
   const numberObjects: NumberArray = [];
   const signs: Array<Operation> = [];
-  const appropriateSigns: Operation[] = ["/", "×", "-", "+"];
-  const error = ErrorType.ExpressionError;
+  const appropriateSigns: Operation[] = ['/', '×', '-', '+'];
+  const error = ErrorEnum.ExpressionError;
   expression = expression.trim();
-  expression = expression.replace(/,/g, ".");
+  expression = expression.replace(/,/g, '.');
 
-  const splittedExpression: Array<string> = expression.split(" ");
+  const splittedExpression: Array<string> = expression.split(' ');
 
-  function checkSquareRootOrPercents(el: string, type: "squareRoot" | "percents"): [string, boolean] {
+  function checkSquareRootOrPercents(el: string, type: 'squareRoot' | 'percents'): [string, boolean] {
     let includesSign = false;
 
-    if (type === "squareRoot") {
+    if (type === 'squareRoot') {
       const squareSigns = [...el.matchAll(/√/g)];
       if (squareSigns.length > 0) {
         includesSign = true;
 
         if (squareSigns.length > 1) {
           throw new Error(error);
-        } else if (el[0] === "√") {
+        } else if (el[0] === '√') {
           el = el.slice(1);
-        } else if (el[el.length - 1] === "√") {
+        } else if (el[el.length - 1] === '√') {
           throw new Error(error);
         } else {
-          const splittedExpression = el.split("√");
+          const splittedExpression = el.split('√');
           const [beforeSquareRoot, afterSquareRoot] = splittedExpression.map((el) => Number(el));
 
           if (Number.isNaN(beforeSquareRoot) || Number.isNaN(afterSquareRoot)) {
@@ -41,7 +41,7 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
         includesSign = true;
         if (squareSigns.length > 1) {
           throw new Error(error);
-        } else if (el[el.length - 1] === "%") {
+        } else if (el[el.length - 1] === '%') {
           el = el.slice(0, -1);
         } else {
           throw new Error(error);
@@ -56,14 +56,14 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
     let hasSquareRoot = false;
     let hasPercents = false;
 
-    [el, hasSquareRoot] = checkSquareRootOrPercents(el, "squareRoot");
-    [el, hasPercents] = checkSquareRootOrPercents(el, "percents");
+    [el, hasSquareRoot] = checkSquareRootOrPercents(el, 'squareRoot');
+    [el, hasPercents] = checkSquareRootOrPercents(el, 'percents');
 
-    if (el.trim() === "") {
+    if (el.trim() === '') {
       throw new Error(error);
     }
 
-    const numberObject: INumber = { typeOfNumber: "simpleNumber", value: 0 };
+    const numberObject: INumber = { typeOfNumber: 'simpleNumber', value: 0 };
 
     let floatNumber = Number(el);
 
@@ -74,7 +74,7 @@ export const calcParser = (expression: string): [NumberArray, Operation[]] => {
       }
       if (hasPercents) {
         floatNumber /= 100;
-        numberObject.typeOfNumber = "percentageNumber";
+        numberObject.typeOfNumber = 'percentageNumber';
       }
       numberObject.value = floatNumber;
       numberObjects.push(numberObject);
